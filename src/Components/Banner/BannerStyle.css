@@ -1,0 +1,49 @@
+.banner{
+    color:white;
+    width: 44%;
+    text-align: center;
+    justify-content: center;
+    margin-left: 26%;
+    margin-top: 6%
+}
+
+.banner > h1 {
+    font-size: 46px;
+}
+
+.banner > h2 {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.banner > h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.search-box{
+    height: 50px;
+    /* border: 1px solid red; */
+    width: 110%;
+}
+
+.search-box > input{
+    height: 50px;
+    width: 66%;
+    background-color: white;
+    border: 0.5px solid green;
+}
+
+
+input:focus{
+    outline: none;
+}
+
+
+.get-started-button{
+    height: 55px;
+    width: 28%;
+    background-color: gold;
+    color: white;
+    font-size: 20px;
+}
