@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import './SignupStyle.css';
 import { Link, useNavigate } from 'react-router-dom';
-// import Axios from 'axios'
+import axios from 'axios'
 
 
 
 function SignUp() {
     const [data, setData] = useState({ username: '', email: '', password: '' });
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         // e.preventdefault();
@@ -17,17 +17,20 @@ function SignUp() {
 
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
-        // axios.post(url,{
-        //     username, email, password
-        // })
-        // .then(response=>{
-        //     if(){
-
-        //     }else{
-        //         navigate('/movie-display')
-        //     }
-        // })
-        // .catch()
+        axios.post('http://localhost:4000/users/register', {
+            username, email, password
+        })
+        .then(response=>{
+            console.log(response.data)
+            // if(response){
+            //     navigate('/sign-in')
+            // }else{
+            //     navigate('/')
+            // }
+        })
+        .catch(err=>{
+            console.log(err)
+        }
     }
 
     return (
