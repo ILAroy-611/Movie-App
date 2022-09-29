@@ -1,33 +1,36 @@
 import './SigninStyle.css';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import Axios from 'axios'
+import axios from 'axios';
 
 
 
 function SignIn() {
     const [data, setData] = useState({ email: '', password: '' });
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
-        // e.preventdefault();
+        e.preventDefault();
         console.log(data);
+        axios.post('http://localhost:4000/users/login',{
+            name:data.username, 
+            email: data.email, 
+            password: data.assword
+        })
+        .then(response=>{
+            if(response.status==200){
+                navigate('/movie-display')
+            }else{
+                navigate('/sign-in')
+            }
+        })
+        .catch()
     }
 
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
-        // axios.post(url,{
-        //     username, email, password
-        // })
-        // .then(response=>{
-        //     if(){
-
-        //     }else{
-        //         navigate('/movie-display')
-        //     }
-        // })
-        // .catch()
+        
     }
 
     return (

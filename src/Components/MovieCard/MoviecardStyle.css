@@ -1,0 +1,33 @@
+.movie-page{
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH-ogt9bRcUwZQLVs-YZKta6SK0E5-35nICw&usqp=CAU);
+    /* height: 100vh; */
+    padding-left: 50px;
+}
+
+.movie-header {
+    /* border: 1px solid white; */
+    display: flex;
+    color : white;
+    justify-content: flex-start;
+    
+}
+
+.movie-header h2{
+    margin-left:12px;
+}
+
+.movie-card-section{
+    display: flex;
+    gap: 20px 50px;
+    /* border: 1px black solid; */
+    flex-wrap: wrap;
+    color:white;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.movie-card{
+    width: 25%;
+    border: 1px black solid;
+}

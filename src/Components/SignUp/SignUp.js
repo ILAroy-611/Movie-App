@@ -10,27 +10,30 @@ function SignUp() {
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
-        // e.preventdefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         console.log(data);
-    }
-
-    const handleChange = (event) => {
-        setData({ ...data, [event.target.name]: event.target.value })
         axios.post('http://localhost:4000/users/register', {
-            username, email, password
+            name: data.username, 
+            email: data.email, 
+            password: data.password
         })
         .then(response=>{
-            console.log(response.data)
-            // if(response){
-            //     navigate('/sign-in')
-            // }else{
-            //     navigate('/')
-            // }
+            console.log(response);
+            if(response.status==200){
+                navigate('/movie-display')
+            }else{
+                navigate('/sign-up')
+            }
         })
         .catch(err=>{
             console.log(err)
         })
+    }
+
+    const handleChange = (event) => {
+        setData({ ...data, [event.target.name]: event.target.value })
+        
     }
 
     return (
@@ -46,14 +49,15 @@ function SignUp() {
             </Link>
             <div className='signup-section'>
                 <h1>Sign Up</h1>
-                <form className='signup-form'>
+                <form  className='signup-form'>
                     <label htmlFor='username'>UserName : </label><br />
                     <input type="text" name='username' placeholder='UserName' value={data.username} onChange={handleChange} autoComplete='off' /><br />
                     <label htmlFor='email'>Email : </label><br />
                     <input type='email' name='email' placeholder='Email' value={data.email} onChange={handleChange} autoComplete='off' /><br />
                     <label htmlFor='password'>Password</label><br />
                     <input type='password' name='password' placeholder='Password' value={data.password} onChange={handleChange} autoComplete='off' /><br />
-                    <button className='signup-form-button' onClick={handleSubmit} >Sign Up</button>
+                    {/* <input type="submit" value='Sign-up'/> */}
+                    <button onClick={handleSubmit} className='signup-form-button'  >Sign Up</button>
                 </form>
                 <div className='form-footer'>Already have an account? <Link to='/sign-in' >Sign In</Link></div>
             </div>
