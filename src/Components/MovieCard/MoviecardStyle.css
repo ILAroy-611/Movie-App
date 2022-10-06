@@ -1,15 +1,37 @@
 .movie-page{
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH-ogt9bRcUwZQLVs-YZKta6SK0E5-35nICw&usqp=CAU);
-    /* height: 100vh; */
-    padding-left: 50px;
+    background-color: rgb(161, 161, 161);;
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    padding: 0px 30px;
 }
 
 .movie-header {
     /* border: 1px solid white; */
     display: flex;
     color : white;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 80px;;
     
+}
+
+.logo{
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid red; */
+    align-items: center;
+    margin-left: 10px;
+}
+
+.search-box{
+    width: 50%;
+    /* border: 1px solid red; */
+    
+}
+
+.search{
+    border-radius: 30px;
+    /* border: 1px solid green; */
+    margin-left:190px;
 }
 
 .movie-header h2{
@@ -28,6 +50,24 @@
 }
 
 .movie-card{
-    width: 25%;
-    border: 1px black solid;
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px black solid; */
+    justify-content: center;
+}
+
+.movie-card img{
+    width: 250px;
+    height: 280px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+a:visited{
+    color: aquamarine;
 }
