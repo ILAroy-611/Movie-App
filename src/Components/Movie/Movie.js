@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios';
 import './MovieStyle.css'
+import Header from '../Header/Header';
 
 
 function Movie({ movieData }) {
@@ -21,18 +22,7 @@ function Movie({ movieData }) {
 
     return (
         <div className='movie-section'>
-            <div className='movie-header'>
-                <div >
-                    <Link to='/' className='logo'>
-                        <img
-                            className='netflix_logo'
-                            src='http://store-images.s-microsoft.com/image/apps.62665.14522505440097099.fb7445b3-34dd-47e7-b484-770a64a497db.f8845ea4-0609-42bd-a457-ff6f187b4bd2'
-                            height='50px'
-                            alt='' />
-                        <h2>Movie-App</h2>
-                    </Link>
-                </div>
-            </div>
+            <Link to='/'><Header /></Link>
             {/* Movie page: {movieID} <br/> */}
             <img src={movie.Poster} alt='' className='poster' />
             <h2>Title of Movie- {movie.Title}</h2>

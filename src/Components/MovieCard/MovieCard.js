@@ -1,7 +1,8 @@
 import './MoviecardStyle.css'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Header from '../Header/Header';
 
 function MovieCard({movieData, setMovieData, searchString, setSearchString}) {
 
@@ -15,16 +16,7 @@ function MovieCard({movieData, setMovieData, searchString, setSearchString}) {
     return (
         <div className='movie-page'>
             <div className='movie-header'>
-                <div >
-                    <Link to='/' className='logo'>
-                        <img
-                            className='netflix_logo'
-                            src='http://store-images.s-microsoft.com/image/apps.62665.14522505440097099.fb7445b3-34dd-47e7-b484-770a64a497db.f8845ea4-0609-42bd-a457-ff6f187b4bd2'
-                            height='50px'
-                            alt='' />
-                        <h2>Movie-App</h2>
-                    </Link>
-                </div>
+                <Link to='/'><Header/></Link>
                 <div className='search-box'>
                     <input className='search' type='search' name='searchString' placeholder='search movie here' onChange={e => setSearchString(e.target.value)} />
                 </div>

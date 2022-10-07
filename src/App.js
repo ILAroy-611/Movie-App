@@ -2,9 +2,8 @@
 import './App.css';
 import Homepage from './Components/Homepage/Homepage';
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SignUp from './Components/SignUp/SignUp';
-// import Homepage from './Components/Homepage/Homepage';
 import SignIn from './Components/SignIn/SignIn';
 import MovieCard from './Components/MovieCard/MovieCard'
 import Movie from './Components/Movie/Movie';
@@ -17,7 +16,6 @@ function App() {
 
   return (
     <div className="App">
-
       <Routes>
         <Route exact path='/' element={<Homepage/>}/>
         <Route path='/sign-up' element={<SignUp/>}/>

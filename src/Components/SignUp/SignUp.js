@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './SignupStyle.css';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import Header from '../Header/Header';
 
 
 
@@ -12,10 +13,12 @@ function SignUp() {
 
     const navigate = useNavigate();
 
+    //regexp for validation
     const EMAIL_REEGEX = new RegExp('^[a-zA-Z]([a-zA-Z0-9]{5,20})@[a-zA-Z]{4,10}[\.][a-z]{2,4}$');
     const USERNAME_REGEX = new RegExp('^[a-zA-Z_$][a-zA-Z0-9]{5,14}');
     const PASSWORD_REGEX = new RegExp('[A-Z][a-zA-Z0-9@#!]{5,9}');
 
+    //to post user data to backend/DB using axios when user submit the form
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(data);
@@ -37,10 +40,12 @@ function SignUp() {
             })
     }
 
+    //to set state
     const handleChange = (event) => {
         setData({ ...data, [event.target.name]: event.target.value })
     }
 
+    //method to validate username- all these methods are called when mouse leaves the input field
     const isUsernameValid = (event) => {
         if (data.username.length != 0) {
             setError('')
@@ -60,6 +65,8 @@ function SignUp() {
             return false
         }
     }
+
+    //method to validate email
     const isEmailValid = (event) => {
         if (data.email.length != 0){
             setError('')
@@ -76,6 +83,8 @@ function SignUp() {
             setError('Email cant be empty!');
         }
     }
+
+    //method to validate password
     const isPasswordValid = (event) => {
         if (data.password.length != 0) {
             setError('')
@@ -95,18 +104,9 @@ function SignUp() {
     }
 
 
-
     return (
         <div className='signup-page'>
-            <Link to='/'><div className='sign-up-header'>
-                <img
-                    className='netflix_logo'
-                    src='http://store-images.s-microsoft.com/image/apps.62665.14522505440097099.fb7445b3-34dd-47e7-b484-770a64a497db.f8845ea4-0609-42bd-a457-ff6f187b4bd2'
-                    height='50px'
-                    alt='' />
-                <h2>Movie-App</h2>
-            </div>
-            </Link>
+            <Link to='/'><Header/></Link>
             <div className='signup-section'>
                 <h1>Sign Up</h1>
                 <form className='signup-form'>
@@ -120,8 +120,9 @@ function SignUp() {
                     <input type='password' name='password' placeholder='Password' value={data.password} onChange={handleChange} onMouseLeave={isPasswordValid} autoComplete='off' /><br />
                     {validateData.invalidPassword && <p className='note'>Password must be valid!</p>}
                     {/* {<input type="submit" value='Sign-up'/> } */}
-                    <button onClick={handleSubmit} className='signup-form-button'>Sign Up</button>
                     <p className='note'>{error}</p>
+                    <button onClick={handleSubmit} className='signup-form-button'>Sign Up</button>
+                    
                 </form>
                 <div className='form-footer'>Already have an account? <Link to='/sign-in' >Sign In</Link></div>
             </div>
