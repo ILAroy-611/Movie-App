@@ -7,6 +7,8 @@ import SignUp from './Components/SignUp/SignUp';
 import SignIn from './Components/SignIn/SignIn';
 import MovieCard from './Components/MovieCard/MovieCard'
 import Movie from './Components/Movie/Movie';
+import NotFound from './Components/NotFoundPage/NotFound'
+
 
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Route path='/sign-in' element={<SignIn/>} />
         <Route path='/movie-display' element={<MovieCard movieData={movieData} setMovieData={setMovieData} searchString={searchString} setSearchString={setSearchString}/>} />
         <Route path='/movie/:movieID' element={<Movie movie={movieData}/>} />
+        <Route path='*' element={ <NotFound/> } />
       </Routes>
 
     </div>

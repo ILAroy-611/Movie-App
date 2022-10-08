@@ -9,9 +9,14 @@ function MovieCard({movieData, setMovieData, searchString, setSearchString}) {
    
 
     useEffect(() => {
-        axios.get(`http://www.omdbapi.com/?s=${searchString}&i=tt3896198&apikey=3de80cd2&limit=9999`)
+        let timer = setTimeout(()=>{
+            axios.get(`http://www.omdbapi.com/?s=${searchString}&i=tt3896198&apikey=3de80cd2&limit=9999`)
             .then(res => { setMovieData([...res.data.Search]) })
+            .then(res=> console.log(movieData));
+        }, 900)
+        return ()=> clearTimeout(timer);
     }, [searchString]);
+        
 
     return (
         <div className='movie-page'>

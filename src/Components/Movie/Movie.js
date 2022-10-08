@@ -22,12 +22,17 @@ function Movie({ movieData }) {
 
     return (
         <div className='movie-section'>
-            <Link to='/'><Header /></Link>
+            <div className='movie-header'>
+                <Link to='/'><Header /></Link>
+                <Link to='/movie-display'><button className='go-back-button'>Go Back</button></Link>
+            </div>
+            
             {/* Movie page: {movieID} <br/> */}
             <img src={movie.Poster} alt='' className='poster' />
             <h2>Title of Movie- {movie.Title}</h2>
             <h3>Year of Release- {movie.Year}</h3>
             <h3>Type/Genre- {movie.Type}</h3>
+             
 
         </div>
     )
